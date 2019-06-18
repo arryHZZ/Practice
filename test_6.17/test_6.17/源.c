@@ -3,15 +3,6 @@
 #include<stdlib.h>
 #include<string.h>
 
-void *Mymemcpy(void *dest, )
-
-int main()
-{
-	int arr1[20] = { 0 };
-	int arr2[] = { 1, 2, 3, 4, 5 };
-	system("pause");
-	return 0;
-}
 
 
 
