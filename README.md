@@ -1,2 +1,2 @@
 # Practice
-LeetCode 做的题的代码，已经面试经典题
+LeetCode 做的题的代码和面试经典例题
