@@ -1,4 +1,4 @@
-#define N 5
+
 typedef struct List
 {
 	int UseSize;
