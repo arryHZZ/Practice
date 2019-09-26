@@ -92,7 +92,6 @@ int main()
 	l1->next->next->next->next->next->val = 6;
 	l1->next->next->next->next->next->next = NULL;
 
-
 	//rotateRight(l1, 2);
 	removeElements(l1, 6);
 	return 0;
