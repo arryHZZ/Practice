@@ -30,4 +30,4 @@ int BinaryTreeComplete(BTNode* root);
 void BinaryTreePrevOrderNonR(BTNode* root);
 void BinaryTreeInOrderNonR(BTNode* root);
 void BinaryTreePostOrderNonR(BTNode* root);
-void TestBinaryTree();
+

@@ -62,23 +62,16 @@ int BinaryTreeSize(BTNode* root)
 //
 int BinaryTreeLeafSize(BTNode* root)
 {
-	int max = 0;
-	int left = 0;
-	int right = 0;
-	if (root->_left)
+	if (root)
 	{
-		left++;
-		return BinaryTreeLeafSize(root->_left) + 1;
+		int left = maxDepth(root->_left);
+		int right = maxDepth(root->_right);
+		return left > right ? left + 1 : right + 1;
 	}
-	if (root->_right)
-	{
-		right++;
-		return BinaryTreeLeafSize(root->_right) + 1;
-	}
-	max = left > right ? left : right;
-	return max;
-
+	else
+		return 0;
 }
+
 int BinaryTreeLevelKSize(BTNode* root, int k);
 
 //Вщев
