@@ -62,16 +62,23 @@ int BinaryTreeSize(BTNode* root)
 //
 int BinaryTreeLeafSize(BTNode* root)
 {
-	if (root)
+	int max = 0;
+	int left = 0;
+	int right = 0;
+	if (root->_left)
 	{
-		int left = maxDepth(root->_left);
-		int right = maxDepth(root->_right);
-		return left > right ? left + 1 : right + 1;
+		left++;
+		return BinaryTreeLeafSize(root->_left) + 1;
 	}
-	else
-		return 0;
-}
+	if (root->_right)
+	{
+		right++;
+		return BinaryTreeLeafSize(root->_right) + 1;
+	}
+	max = left > right ? left : right;
+	return max;
 
+}
 int BinaryTreeLevelKSize(BTNode* root, int k);
 
 //查找
@@ -79,7 +86,7 @@ BTNode* BinaryTreeFind(BTNode* root, BTDataType x)
 {
 	if (root && root->_data == x)
 	{
-		return root->_data;
+		return root;
 	}
 	if (root->_left)
 	{
@@ -137,22 +144,73 @@ void BinaryTreePostOrder(BTNode* root)
 		printf("# ");
 	}
 }
+void BinaryTreePostOrderNor(BTNode* root)
+{
+	BTNode* arr[10] = { 0 };
+	int i = 0;
+	arr[i++] = root;
+	while (root)
+	{
+		while (root)
+		{
+			arr[i++] = root;
+			root = root->_left;
+			
+		}
+		if (!root)
+		{
+			root = arr[--i];
+			printf("%c ", root->_data);
+			root = arr[i]->_right;
+		}
+
+	}
+}
+
+//单值二叉树
+int isUnivalTree(BTNode* root){
+	if (root->_left)
+	{
+		if (root->_data != root->_left->_data || !isUnivalTree(root->_left))
+			return 0;
+	}
+	if (root->_right)
+	{
+		if (root->_data != root->_right->_data || isUnivalTree(root->_right))
+			return 0;
+	}
+	return 1;
+}
+
+//检查数是否对称
+int isSymmetric(BTNode* left, BTNode* right)
+{
+	if (right == NULL && left == NULL)
+		return 1;
+	if (right == NULL || left == NULL)
+		return 0;
+	if ((right->_data == left->_data)
+		&& isMetic(right->_right, left->_left)
+		&& isMetic(right->_left, left->_right))
+		return 1;
+	else
+		return 0;
+}
 
 void test()
 {
 	int count = 0;
-	BTDataType arr[] = "ABD##E#H##CF##G##";
+	BTDataType arr[] = "111##1##1#1##";
 	BTNode*head =  BinaryTreeCreate(arr, sizeof(arr)/sizeof(arr[0]), &count);
 	int num = BinaryTreeSize(head);
-	BTDataType date = BinaryTreeFind(head, 'Y');
-	printf("%d\n", num);
-	printf("%c\n", date);
 	BinaryTreePrevOrder(head);
 	printf("\n");
 	BinaryTreeInOrder(head);
 	printf("\n");
 	BinaryTreePostOrder(head);
-	printf("%d", BinaryTreeLeafSize(head));
+	printf("%d\n", BinaryTreeLeafSize(head));
+	BinaryTreePostOrderNor(head);
+	printf("%d", isUnivalTree(head));
 
 
 	
@@ -161,7 +219,7 @@ void test()
 	//BinaryTreeDestory(&head);
 }
 
-int main()s
+int main()
 {
 	test();
 	return 0;

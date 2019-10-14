@@ -30,4 +30,10 @@ int BinaryTreeComplete(BTNode* root);
 void BinaryTreePrevOrderNonR(BTNode* root);
 void BinaryTreeInOrderNonR(BTNode* root);
 void BinaryTreePostOrderNonR(BTNode* root);
+void TestBinaryTree();
 
+void BinaryTreePostOrderNor(BTNode* root);
+//单指二叉树
+int isUnivalTree(BTNode* root);
+//检查数是否对称
+int isSymmetric(BTNode* left, BTNode* right);
