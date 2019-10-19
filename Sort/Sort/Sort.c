@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include"Heap.h"
 #include"Sort.h"
+#include<malloc.h>
 
 //直接插入排序
 void InsertSort(int *arr, int len)
@@ -86,15 +87,15 @@ void BubSort(int *arr, int len)
 //堆排序
 void HaepSort(int *arr, int len)
 {
-	BuildHeap(arr, len);
+	BuildHeap(arr, len); //建堆
 	int tmp = 0;
 	int n = len - 1;
 	for (int i = len; i > 0; i--)
 	{
-		tmp = arr[0];
+		tmp = arr[0];    // 交换
 		arr[0] = arr[i - 1];
 		arr[i - 1] = tmp;
-		MaxHeap(arr, --len, 0);
+		MaxHeap(arr, --len, 0);  //再次建堆
 	}
 }
 
@@ -126,6 +127,7 @@ int PartSort(int *arr, int left, int right)
 	Swap(&arr[start], &arr[left]);
 	return left;
 }
+
 void QSort(int *arr, int left, int right)
 {
 	int mid = PartSort(arr, left, right);
@@ -135,14 +137,81 @@ void QSort(int *arr, int left, int right)
 		QSort(arr, mid + 1, right);
 }
 
+//归并排序
+void _MergeSort(int *arr, int* NewArr, int left, int right, int mid)
+{
+	int begin1 = left;
+	int begin2 = mid+1;
+	int tmp = left;
+	while (begin1 <= mid && begin2 <= right)
+	{
+		if (arr[begin1] < arr[begin2])
+			NewArr[tmp++] = arr[begin1++];
+		else
+			NewArr[tmp++] = arr[begin2++];
+	}
+	while (begin1<=mid)
+	{
+		NewArr[tmp++] = arr[begin1++];
+	}
+	while (begin2 <= right)
+	{
+		NewArr[tmp++] = arr[begin2++];
+	}
+	for(tmp = left; tmp <= right; tmp++)
+	{
+		arr[tmp] = NewArr[tmp];
+	}
+}
+
+void MergeSort(int *arr, int* NewArr, int left, int right)
+{
+	int mid = left + (right - left)/2;
+	if (left < right)
+	{
+		MergeSort(arr, NewArr,left, mid);
+		MergeSort(arr, NewArr, mid + 1, right);
+	}
+	_MergeSort(arr, NewArr, left, right, mid);
+}
+
+//选择排序
+void SelectSort(int *arr, int len)
+{
+	int max = 0;
+	int min = 0;
+	int begin = 0;
+	int end = len - 1;
+	int i = 0;
+	while (begin < end)
+	{
+		for (i = begin; i <= end; i++)
+		{
+			if (arr[i] < arr[min])
+				min = i;
+			if (arr[i]>arr[max])
+				max = i;
+		}
+		Swap(&arr[begin], &arr[min]);
+		if (max == begin)
+			max = min;
+		Swap(&arr[end], &arr[max]);
+		begin++;
+		end--;
+	}
+}
+
 int main()
 {
 	int arr1[] = { 3, 5, 8, 4, 7, 9, 1, 2, 6 };
+	int* NewArr = (int *)malloc(sizeof(int)*(sizeof(arr1)/sizeof(arr1[0])));
 	//InsertSort(arr1, sizeof(arr1) / sizeof(arr1[0]));
 	//ShellSort(arr1, sizeof(arr1) / sizeof(arr1[0]));
 	//BubSort(arr1, sizeof(arr1) / sizeof(arr1[0]));
 	//HaepSort(arr1, sizeof(arr1) / sizeof(arr1[0]));
-	QSort(arr1,0, sizeof(arr1) / sizeof(arr1[0])-1);
+	//QSort(arr1,0, sizeof(arr1) / sizeof(arr1[0])-1);
+	//SelectSort(arr1, 9);
+	//MergeSort(arr1, NewArr, 0, sizeof(arr1) / sizeof(arr1[0])-1);
 	Print(arr1, sizeof(arr1) / sizeof(arr1[0]));
 	return 0;
 }

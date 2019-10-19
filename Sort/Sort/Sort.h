@@ -8,3 +8,7 @@ void BubSort(int *arr, int len);
 void HaepSort(int *arr, int len);
 //快速排序
 void QSort(int *arr, int len);
+//归并排序
+void MergeSort(int *arr, int* NewArr, int left, int right);
+//选择排序
+void SelectSort(int *arr, int len);

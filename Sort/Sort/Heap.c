@@ -30,7 +30,7 @@ void MaxHeap(int *arr, int len, int n)
 		}
 		else
 			break;
-		
+
 	}
 }
 
