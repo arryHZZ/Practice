@@ -213,5 +213,6 @@ int main()
 	//SelectSort(arr1, 9);
 	//MergeSort(arr1, NewArr, 0, sizeof(arr1) / sizeof(arr1[0])-1);
 	Print(arr1, sizeof(arr1) / sizeof(arr1[0]));
+	free(NewArr);
 	return 0;
 }
