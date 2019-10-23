@@ -211,10 +211,6 @@ void test()
 	printf("%d\n", BinaryTreeLeafSize(head));
 	BinaryTreePostOrderNor(head);
 	printf("%d", isUnivalTree(head));
-
-
-	
-	
 	//Ïú»Ù
 	//BinaryTreeDestory(&head);
 }
