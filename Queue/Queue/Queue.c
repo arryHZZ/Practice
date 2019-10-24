@@ -9,6 +9,7 @@ void QueueInit(Queue* pq)
 {	
 	pq->_front = pq->_rear = NULL;
 }
+
 //销毁队
 void QueueDestory(Queue* pq);
 //创建节点
