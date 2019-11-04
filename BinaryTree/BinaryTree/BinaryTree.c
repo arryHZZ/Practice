@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include"BinaryTree.h"
 #include<malloc.h>
