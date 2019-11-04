@@ -30,7 +30,6 @@ BTNode* BinaryTreeCreate(BTDataType* a, int n, int* pi)
 //Ïú»Ù¶þ²æÊ÷
 void BinaryTreeDestory(BTNode** root)
 {
-	//assert(root);
 	if ((*root)->_left)
 	{
 		BinaryTreeDestory(&(*root)->_left);
