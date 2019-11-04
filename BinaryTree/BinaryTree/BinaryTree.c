@@ -4,7 +4,6 @@
 #include<malloc.h>
 #include<assert.h>
 
-
 // 通过前序遍历的数组"ABD##E#H##CF##G##"构建二叉树
 BTNode* BinaryTreeCreate(BTDataType* a, int n, int* pi)
 {
