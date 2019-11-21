@@ -12,6 +12,7 @@ void QueueInit(Queue* pq)
 
 //销毁队
 void QueueDestory(Queue* pq);
+
 //创建节点
 QueueNode* CreatQueueNode(QUDataType x)
 {
