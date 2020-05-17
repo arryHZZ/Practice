@@ -1,13 +1,8 @@
-﻿生成启动时间为 2020/5/12 17:41:42。
+﻿生成启动时间为 2020/5/14 13:31:03。
      1>项目“F:\程序\test_5.12\test_5.12\test_5.12.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          E:\vss\vis\VC\bin\CL.exe /c /I"E:\vss\内存泄漏检查工具\新建文件夹\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "源.cpp"
          源.cpp
-     1>f:\程序\test_5.12\test_5.12\源.cpp(12): warning C4018: “<”: 有符号/无符号不匹配
-     1>f:\程序\test_5.12\test_5.12\源.cpp(14): warning C4018: “<”: 有符号/无符号不匹配
-     1>f:\程序\test_5.12\test_5.12\源.cpp(26): warning C4018: “<”: 有符号/无符号不匹配
-     1>f:\程序\test_5.12\test_5.12\源.cpp(28): warning C4018: “<”: 有符号/无符号不匹配
-     1>f:\程序\test_5.12\test_5.12\源.cpp(40): warning C4018: “<”: 有符号/无符号不匹配
        Link:
          E:\vss\vis\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\程序\test_5.12\Debug\test_5.12.exe" /INCREMENTAL /NOLOGO /LIBPATH:"E:\vss\内存泄漏检查工具\新建文件夹\Visual Leak Detector\lib\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\程序\test_5.12\Debug\test_5.12.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\程序\test_5.12\Debug\test_5.12.lib" /MACHINE:X86 "Debug\源.obj"
          test_5.12.vcxproj -> F:\程序\test_5.12\Debug\test_5.12.exe
@@ -15,4 +10,4 @@
 
 生成成功。
 
-已用时间 00:00:00.78
+已用时间 00:00:00.89
